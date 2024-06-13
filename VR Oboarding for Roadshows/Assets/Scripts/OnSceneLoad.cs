@@ -10,6 +10,8 @@ public class OnSceneLoad : MonoBehaviour
     // When scene is loaded and play begins
     public UnityEvent OnLoad = new UnityEvent();
 
+    private AudioSource narration;
+
     private void Awake()
     {
         SceneManager.sceneLoaded += PlayEvent;
@@ -23,5 +25,8 @@ public class OnSceneLoad : MonoBehaviour
     private void PlayEvent(Scene scene, LoadSceneMode mode)
     {
         OnLoad.Invoke();
+        narration = GetComponent<AudioSource>();
+        narration.Play();
+        
     }
 }
