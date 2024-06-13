@@ -27,6 +27,5 @@ public class OnSceneLoad : MonoBehaviour
         OnLoad.Invoke();
         narration = GetComponent<AudioSource>();
         narration.Play();
-        
     }
 }
