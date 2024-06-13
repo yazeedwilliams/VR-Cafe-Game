@@ -12,6 +12,7 @@ public class DestroyObject : MonoBehaviour
     {
         updateScore = FindObjectOfType<UpdateScore>();
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bin"))
