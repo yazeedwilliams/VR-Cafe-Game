@@ -7,8 +7,13 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI gameOverText;
 
-    private void Start()
+    public void GameOver()
     {
         gameOverText.gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
     }
 }
