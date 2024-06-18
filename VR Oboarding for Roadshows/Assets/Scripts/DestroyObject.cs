@@ -5,9 +5,20 @@
 /// </summary>
 public class DestroyObject : MonoBehaviour
 {
+    [SerializeField] private int points = 1;
+    private UpdateScore updateScore;
+
+    private void Start()
+    {
+        updateScore = FindObjectOfType<UpdateScore>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bin"))
+        {
+            updateScore.IncreasScore(points);
             Destroy(gameObject);
+        }
     }
 }
