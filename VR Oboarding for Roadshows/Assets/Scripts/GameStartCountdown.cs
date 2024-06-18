@@ -7,16 +7,25 @@ public class GameStartCountdown : MonoBehaviour
 {
     [SerializeField] private float countdownTime = 5f; // Set the countdown time in seconds
     [SerializeField] private TextMeshProUGUI countdownText; // Reference to the UI Text element
+    [SerializeField] private AudioSource gameStartSound;
 
     private float currentTime;
-
-    private AudioSource gameStartSound;
+    private bool isCountdownStarted;
 
     void Start()
     {
-        currentTime = countdownTime;
-        UpdateCountdownText();
-        StartCoroutine(StartCountdown());
+        enabled = false;
+    }
+
+    public void StartCountDown()
+    {
+        if (!enabled)
+        {
+            enabled = true;
+            currentTime = countdownTime;
+            UpdateCountdownText();
+            StartCoroutine(StartCountdown());
+        }
     }
 
     // Coroutine to handle the countdown
@@ -29,11 +38,12 @@ public class GameStartCountdown : MonoBehaviour
             UpdateCountdownText();
         }
 
+        if (gameStartSound != null)
+            gameStartSound.Play();
+
         // Trigger the start of the game
-        gameStartSound = GetComponent<AudioSource>();
-        gameStartSound.Play();
-        gameObject.SetActive(false);
         StartGame();
+        gameObject.SetActive(false);
     }
 
     // Method to update the countdown text UI
