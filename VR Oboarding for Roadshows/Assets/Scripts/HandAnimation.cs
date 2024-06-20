@@ -1,22 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Animator))]
 public class HandAnimation : MonoBehaviour
 {
     [SerializeField] private InputActionReference gripReference;
-    [SerializeField] private InputActionReference triggerReference;
+    //[SerializeField] private InputActionReference triggerReference;
 
-    [SerializeField] private Animator handAnimator;
+    private Animator _handAnimator;
 
-    // Update is called once per frame
-    void Update()
+    private float _gripValue;
+    private float _triggerValue;
+
+    private void Start()
     {
-        float gripValue = gripReference.action.ReadValue<float>();
-        handAnimator.SetFloat("Grip", gripValue);
+        _handAnimator = GetComponent<Animator>();
+    }
 
-        float triggerValue = triggerReference.action.ReadValue<float>();
-        handAnimator.SetFloat("Trigger", triggerValue);
+    private void Update()
+    {
+        AnimateGrip();
+    }
+
+    private void AnimateGrip()
+    {
+        _gripValue = gripReference.action.ReadValue<float>();
+        _handAnimator.SetFloat("Grip", _gripValue);
     }
 }
