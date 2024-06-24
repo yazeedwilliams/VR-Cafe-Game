@@ -34,6 +34,8 @@ public class GameStartTimer : MonoBehaviour
             yield return null;
         }
         TimerEnded();
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
     }
 
     private void TimerEnded()
