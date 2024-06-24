@@ -3559,6 +3559,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
 --- !u!114 &625991989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9016,7 +9017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969b8e08cffa4e44681eb600a8dfc099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDuration: 2
+  defaultDuration: 5
 --- !u!225 &2052894245
 CanvasGroup:
   m_ObjectHideFlags: 0
