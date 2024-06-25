@@ -10,8 +10,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameTimerText;
     [SerializeField] private UnityEvent onGameEnd;
 
-    private float startTime = 10f;
+    private ScoreCounter scoreCount;
+
+    private float startTime = 5f;
     private float currentTime;
+
+    private void Start()
+    {
+        scoreCount = FindAnyObjectByType<ScoreCounter>();
+    }
 
     public void StartGame()
     {
@@ -46,6 +53,9 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-
+        if (scoreCount.GetScore() == 5)
+        {
+            onGameEnd.Invoke();
+        }
     }
 }
