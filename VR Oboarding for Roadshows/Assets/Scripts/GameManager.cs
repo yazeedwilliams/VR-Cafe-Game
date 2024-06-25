@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -42,7 +40,6 @@ public class GameManager : MonoBehaviour
         }
         TimerEnded();
         yield return new WaitForSeconds(1f);
-        //gameObject.SetActive(false);
     }
 
     private void TimerEnded()
@@ -57,5 +54,14 @@ public class GameManager : MonoBehaviour
         {
             onGameEnd.Invoke();
         }
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game");
+        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }
