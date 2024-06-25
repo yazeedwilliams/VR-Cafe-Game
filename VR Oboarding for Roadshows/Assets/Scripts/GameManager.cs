@@ -43,4 +43,9 @@ public class GameManager : MonoBehaviour
         gameTimerText.text = "Game Over!";
         onGameEnd.Invoke();
     }
+
+    private void GameOver()
+    {
+
+    }
 }
