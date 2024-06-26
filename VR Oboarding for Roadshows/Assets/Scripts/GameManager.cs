@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        if (scoreCount.GetScore() == 5)
+        if (scoreCount.GetScore() == 2)
         {
             onGameEnd.Invoke();
         }
