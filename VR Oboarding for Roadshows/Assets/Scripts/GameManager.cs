@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private ScoreCounter scoreCount;
 
-    private float startTime = 5f;
+    private float startTime = 20f;
     private float currentTime;
 
     private void Start()
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     {
         ResetTimer();
         StartCoroutine(GameTimeCountdown());
+        //StartCoroutine(GameScore());
     }
 
     private void ResetTimer()
@@ -36,24 +37,21 @@ public class GameManager : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
             gameTimerText.text = Mathf.Ceil(currentTime).ToString();
+            if (scoreCount.GetScore() == 2)
+            {
+                GameOver();
+                //yield return null;
+            }
             yield return null;
         }
-        TimerEnded();
+        GameOver();
         yield return new WaitForSeconds(1f);
-    }
-
-    private void TimerEnded()
-    {
-        gameTimerText.text = "Game Over!";
-        onGameEnd.Invoke();
     }
 
     private void GameOver()
     {
-        if (scoreCount.GetScore() == 2)
-        {
-            onGameEnd.Invoke();
-        }
+        gameTimerText.text = "Game Over!";
+        onGameEnd.Invoke();
     }
 
     public void QuitGame()
