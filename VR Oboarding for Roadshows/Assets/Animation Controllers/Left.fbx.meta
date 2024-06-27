@@ -3,7 +3,18 @@ guid: 1f60274b934f0e9438f1924dc60435f5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RightHandMat
+    second: {fileID: 2100000, guid: 86386c4ada708a94e8cd184f9960841b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shell_quest2ControllerMAT
+    second: {fileID: -6185766491606215477, guid: 048e068eaf033194eb072ebe3df5c764,
+      type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
