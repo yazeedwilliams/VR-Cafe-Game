@@ -6500,6 +6500,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: XRHandandControllerWithPoses
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c557f60de9dca614bb94a64dac21874c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: c557f60de9dca614bb94a64dac21874c,
         type: 3}
       propertyPath: m_Controller
@@ -10090,7 +10095,7 @@ MonoBehaviour:
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
-  m_ModelPrefab: {fileID: 0}
+  m_ModelPrefab: {fileID: 580742195}
   m_ModelParent: {fileID: 0}
   m_Model: {fileID: 0}
   m_AnimateModel: 0
