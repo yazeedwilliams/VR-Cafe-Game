@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,22 +6,23 @@ using UnityEngine.XR;
 
 public class XRControllerInput : MonoBehaviour
 {
-    public InputDevice rightController;
-    public InputDevice leftController;
-
-    private InputData inputData;
+    private InputDevice rightController;
+    private InputDevice leftController;
 
     private void Start()
     {
-        inputData = GetComponent<InputData>();
-        Debug.Log(inputData);
+        rightController = InitalizeController();
     }
 
-    private void Update()
+    private InputDevice InitalizeController()
     {
-        if (inputData._leftController.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue))
+        List<InputDevice> controllers = new List<InputDevice>();
+        InputDevices.GetDevicesAtXRNode(XRNode.GameController, controllers);
+        if (controllers.Count > 0)
         {
-            Debug.Log("trigger value" + triggerValue);
+            rightController = controllers[0];
+            Debug.Log("Controller initialized");
         }
+        return rightController;
     }
 }
