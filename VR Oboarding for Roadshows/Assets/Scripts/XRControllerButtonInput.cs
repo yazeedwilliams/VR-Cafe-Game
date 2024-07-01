@@ -1,31 +1,44 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class XRControllerButtonInput : MonoBehaviour
 {
     [SerializeField] private InputActionReference triggerButtonAction;
-    [SerializeField] private InputActionReference gripButtonAction; 
+    [SerializeField] private InputActionReference gripButtonAction;
     [SerializeField] private InputActionReference primaryButtonAction;
-    [SerializeField] private InputActionReference secondaryButtonAction; 
+    [SerializeField] private InputActionReference secondaryButtonAction;
     [SerializeField] private InputActionReference analogueButtonAction;
+
+    private Dictionary<InputActionReference, Action<InputAction.CallbackContext>> actionHandlers;
+
+    private void Awake()
+    {
+        actionHandlers = new Dictionary<InputActionReference, Action<InputAction.CallbackContext>>
+        {
+            { triggerButtonAction, OnTriggerButtonPress },
+            { gripButtonAction, OnGripButtonPress },
+            { primaryButtonAction, OnPrimaryButtonPress },
+            { secondaryButtonAction, OnSecondaryButtonPress },
+            { analogueButtonAction, OnAnaloguePressed }
+        };
+    }
 
     private void OnEnable()
     {
-        triggerButtonAction.action.performed += OnTriggerButtonPress;
-        gripButtonAction.action.performed += OnGripButtonPress;
-        primaryButtonAction.action.performed += OnPrimaryButtonPress;
-        secondaryButtonAction.action.performed += OnSecondaryButtonPress;
-        analogueButtonAction.action.performed += OnAnaloguepressed;
+        foreach (var actionHandler in actionHandlers)
+        {
+            actionHandler.Key.action.performed += actionHandler.Value;
+        }
     }
 
     private void OnDisable()
     {
-        triggerButtonAction.action.performed -= OnTriggerButtonPress;
-        gripButtonAction.action.performed -= OnGripButtonPress;
-        primaryButtonAction.action.performed -= OnPrimaryButtonPress;
-        secondaryButtonAction.action.performed -= OnSecondaryButtonPress;
-        analogueButtonAction.action.performed -= OnAnaloguepressed;
+        foreach (var actionHandler in actionHandlers)
+        {
+            actionHandler.Key.action.performed -= actionHandler.Value;
+        }
     }
 
     private void OnTriggerButtonPress(InputAction.CallbackContext context)
@@ -52,10 +65,9 @@ public class XRControllerButtonInput : MonoBehaviour
             Debug.Log("Secondary Pressed");
     }
 
-    private void OnAnaloguepressed(InputAction.CallbackContext context)
+    private void OnAnaloguePressed(InputAction.CallbackContext context)
     {
         if (context.performed)
             Debug.Log("Analogue Pressed");
     }
-
 }
