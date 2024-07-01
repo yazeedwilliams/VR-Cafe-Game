@@ -5,29 +5,52 @@ using UnityEngine.InputSystem;
 
 public class XRControllerButtonInput : MonoBehaviour
 {
-    [SerializeField] private InputActionReference triggerButtonAction;
-    [SerializeField] private InputActionReference gripButtonAction;
-    [SerializeField] private InputActionReference primaryButtonAction;
-    [SerializeField] private InputActionReference secondaryButtonAction;
-    [SerializeField] private InputActionReference analogueButtonAction;
+    [Header("Left Controller Actions")]
+    [SerializeField] private InputActionReference leftTriggerButtonAction;
+    [SerializeField] private InputActionReference leftGripButtonAction;
+    [SerializeField] private InputActionReference leftPrimaryButtonAction;
+    [SerializeField] private InputActionReference leftSecondaryButtonAction;
+    [SerializeField] private InputActionReference leftAnalogueButtonAction;
 
-    private Dictionary<InputActionReference, Action<InputAction.CallbackContext>> actionHandlers;
+    [Header("Right Controller Actions")]
+    [SerializeField] private InputActionReference rightTriggerButtonAction;
+    [SerializeField] private InputActionReference rightGripButtonAction;
+    [SerializeField] private InputActionReference rightPrimaryButtonAction;
+    [SerializeField] private InputActionReference rightSecondaryButtonAction;
+    [SerializeField] private InputActionReference rightAnalogueButtonAction;
+
+    private Dictionary<InputActionReference, Action<InputAction.CallbackContext>> leftActionHandlers;
+    private Dictionary<InputActionReference, Action<InputAction.CallbackContext>> rightActionHandlers;
 
     private void Awake()
     {
-        actionHandlers = new Dictionary<InputActionReference, Action<InputAction.CallbackContext>>
+        leftActionHandlers = new Dictionary<InputActionReference, Action<InputAction.CallbackContext>>
         {
-            { triggerButtonAction, OnTriggerButtonPress },
-            { gripButtonAction, OnGripButtonPress },
-            { primaryButtonAction, OnPrimaryButtonPress },
-            { secondaryButtonAction, OnSecondaryButtonPress },
-            { analogueButtonAction, OnAnaloguePressed }
+            { leftTriggerButtonAction, context => OnButtonPress(context, "Left Trigger Pressed") },
+            { leftGripButtonAction, context => OnButtonPress(context, "Left Grip Pressed") },
+            { leftPrimaryButtonAction, context => OnButtonPress(context, "Left Primary Pressed") },
+            { leftSecondaryButtonAction, context => OnButtonPress(context, "Left Secondary Pressed") },
+            { leftAnalogueButtonAction, context => OnButtonPress(context, "Left Analogue Pressed") }
+        };
+
+        rightActionHandlers = new Dictionary<InputActionReference, Action<InputAction.CallbackContext>>
+        {
+            { rightTriggerButtonAction, context => OnButtonPress(context, "Right Trigger Pressed") },
+            { rightGripButtonAction, context => OnButtonPress(context, "Right Grip Pressed") },
+            { rightPrimaryButtonAction, context => OnButtonPress(context, "Right Primary Pressed") },
+            { rightSecondaryButtonAction, context => OnButtonPress(context, "Right Secondary Pressed") },
+            { rightAnalogueButtonAction, context => OnButtonPress(context, "Right Analogue Pressed") }
         };
     }
 
     private void OnEnable()
     {
-        foreach (var actionHandler in actionHandlers)
+        foreach (var actionHandler in leftActionHandlers)
+        {
+            actionHandler.Key.action.performed += actionHandler.Value;
+        }
+
+        foreach (var actionHandler in rightActionHandlers)
         {
             actionHandler.Key.action.performed += actionHandler.Value;
         }
@@ -35,39 +58,22 @@ public class XRControllerButtonInput : MonoBehaviour
 
     private void OnDisable()
     {
-        foreach (var actionHandler in actionHandlers)
+        foreach (var actionHandler in leftActionHandlers)
+        {
+            actionHandler.Key.action.performed -= actionHandler.Value;
+        }
+
+        foreach (var actionHandler in rightActionHandlers)
         {
             actionHandler.Key.action.performed -= actionHandler.Value;
         }
     }
 
-    private void OnTriggerButtonPress(InputAction.CallbackContext context)
+    private void OnButtonPress(InputAction.CallbackContext context, string message)
     {
         if (context.performed)
-            Debug.Log("Trigger Pressed");
-    }
-
-    private void OnGripButtonPress(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            Debug.Log("Grip Pressed");
-    }
-
-    private void OnPrimaryButtonPress(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            Debug.Log("Primary Pressed");
-    }
-
-    private void OnSecondaryButtonPress(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            Debug.Log("Secondary Pressed");
-    }
-
-    private void OnAnaloguePressed(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-            Debug.Log("Analogue Pressed");
+        {
+            Debug.Log(message);
+        }
     }
 }

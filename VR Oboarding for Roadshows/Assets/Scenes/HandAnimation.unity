@@ -6637,15 +6637,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4942f35514df53e49b5dc56a2b016e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerButtonAction: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
+  leftTriggerButtonAction: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  gripButtonAction: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
+  leftGripButtonAction: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  primaryButtonAction: {fileID: 8577666960168290723, guid: c348712bda248c246b8c49b3db54643f,
+  leftPrimaryButtonAction: {fileID: 8577666960168290723, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  secondaryButtonAction: {fileID: 2111239238827273475, guid: c348712bda248c246b8c49b3db54643f,
+  leftSecondaryButtonAction: {fileID: 2111239238827273475, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
-  analogueButtonAction: {fileID: 1414110917189105860, guid: c348712bda248c246b8c49b3db54643f,
+  leftAnalogueButtonAction: {fileID: 1414110917189105860, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  rightTriggerButtonAction: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  rightGripButtonAction: {fileID: 187161793506945269, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  rightPrimaryButtonAction: {fileID: -7952440985758797658, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  rightSecondaryButtonAction: {fileID: -1472342855155620155, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  rightAnalogueButtonAction: {fileID: -2899284870776981293, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
 --- !u!1 &1329818942
 GameObject:
