@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,25 +12,50 @@ public class XRControllerButtonInput : MonoBehaviour
 
     private void OnEnable()
     {
-        triggerButtonAction.action.performed += OnButtonPress;
-        gripButtonAction.action.performed += OnButtonPress;
-        primaryButtonAction.action.performed += OnButtonPress;
-        secondaryButtonAction.action.performed += OnButtonPress;
-        analogueButtonAction.action.performed += OnButtonPress;
+        triggerButtonAction.action.performed += OnTriggerButtonPress;
+        gripButtonAction.action.performed += OnGripButtonPress;
+        primaryButtonAction.action.performed += OnPrimaryButtonPress;
+        secondaryButtonAction.action.performed += OnSecondaryButtonPress;
+        analogueButtonAction.action.performed += OnAnaloguepressed;
     }
 
     private void OnDisable()
     {
-        triggerButtonAction.action.performed -= OnButtonPress;
-        gripButtonAction.action.performed -= OnButtonPress;
-        primaryButtonAction.action.performed -= OnButtonPress;
-        secondaryButtonAction.action.performed -= OnButtonPress;
-        analogueButtonAction.action.performed -= OnButtonPress;
+        triggerButtonAction.action.performed -= OnTriggerButtonPress;
+        gripButtonAction.action.performed -= OnGripButtonPress;
+        primaryButtonAction.action.performed -= OnPrimaryButtonPress;
+        secondaryButtonAction.action.performed -= OnSecondaryButtonPress;
+        analogueButtonAction.action.performed -= OnAnaloguepressed;
     }
 
-    private void OnButtonPress(InputAction.CallbackContext context)
+    private void OnTriggerButtonPress(InputAction.CallbackContext context)
     {
         if (context.performed)
-            Debug.Log("Pressed");
+            Debug.Log("Trigger Pressed");
     }
+
+    private void OnGripButtonPress(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            Debug.Log("Grip Pressed");
+    }
+
+    private void OnPrimaryButtonPress(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            Debug.Log("Primary Pressed");
+    }
+
+    private void OnSecondaryButtonPress(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            Debug.Log("Secondary Pressed");
+    }
+
+    private void OnAnaloguepressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            Debug.Log("Analogue Pressed");
+    }
+
 }
