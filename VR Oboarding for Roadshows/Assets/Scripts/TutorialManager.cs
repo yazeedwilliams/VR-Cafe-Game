@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -10,8 +11,9 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private XRControllerButtonInput buttonInput;
     [SerializeField] private AudioSource audioSource;
 
-    private float deactivateTime = 5f;
+    private float timeDelay = 4f;
     private int currentStep = 0;
+    private int highlightedButtonsIndex = 0;
 
     private void Start()
     {
@@ -22,7 +24,7 @@ public class TutorialManager : MonoBehaviour
         }
 
         instructionsText[currentStep].SetActive(true);
-        StartCoroutine(DeactivateAfterDelay(deactivateTime));
+        StartCoroutine(DeactivateAfterDelay(timeDelay));
 
 
         // Subscribe to button press events
@@ -52,49 +54,63 @@ public class TutorialManager : MonoBehaviour
             (actionReference == buttonInput.leftTriggerButtonAction || actionReference == buttonInput.rightTriggerButtonAction))
         {
             MoveToNextStep();
+            ChangeHighlightButton();
         }
         else if (currentStep == 2 && instructionsText[2].activeSelf &&
                  (actionReference == buttonInput.leftGripButtonAction || actionReference == buttonInput.rightGripButtonAction))
         {
             MoveToNextStep();
+            ChangeHighlightButton();
         }
         else if (currentStep == 3 && instructionsText[3].activeSelf &&
                  (actionReference == buttonInput.leftPrimaryButtonAction || actionReference == buttonInput.rightPrimaryButtonAction))
         {
             MoveToNextStep();
+            ChangeHighlightButton();
         }
         else if (currentStep == 4 && instructionsText[4].activeSelf &&
                  (actionReference == buttonInput.leftSecondaryButtonAction || actionReference == buttonInput.rightSecondaryButtonAction))
         {
             MoveToNextStep();
+            ChangeHighlightButton();
         }
         else if (currentStep == 5 && instructionsText[5].activeSelf &&
                  (actionReference == buttonInput.leftSecondaryButtonAction || actionReference == buttonInput.rightSecondaryButtonAction))
         {
             MoveToNextStep();
+            ChangeHighlightButton();
         }
         else if (currentStep == 6 && instructionsText[6].activeSelf &&
                  (actionReference == buttonInput.leftAnalogueButtonAction || actionReference == buttonInput.rightAnalogueButtonAction))
         {
             MoveToNextStep();
+            ChangeHighlightButton();
         }
     }
 
     private void MoveToNextStep()
     {
         instructionsText[currentStep].SetActive(false);
-        //highlightedButtons[currentStep].SetActive(false);
         currentStep++;
         if (currentStep < instructionsText.Length)
         {
-            highlightedButtons[currentStep - 1].SetActive(true);
             instructionsText[currentStep].SetActive(true);
             PlayStepAudio(currentStep);
         }
-        highlightedButtons[currentStep - 1].SetActive(false);
 
-        if (currentStep == instructionsText.Length)
-            Debug.Log("Finished");
+        if (currentStep == 6)
+            StartCoroutine(ChangeScene(timeDelay));
+    }
+
+    private void ChangeHighlightButton()
+    {
+        if (highlightedButtonsIndex < highlightedButtons.Length)
+        {
+            if (highlightedButtonsIndex > 0)
+                highlightedButtons[highlightedButtonsIndex - 1].SetActive(false);
+            highlightedButtons[highlightedButtonsIndex].SetActive(true);
+            highlightedButtonsIndex++;
+        }
     }
 
     private void PlayStepAudio(int step)
@@ -111,5 +127,16 @@ public class TutorialManager : MonoBehaviour
         PlayStepAudio(currentStep);
         yield return new WaitForSeconds(delay);
         MoveToNextStep();
+        ChangeHighlightButton();
+    }
+
+    private IEnumerator ChangeScene(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("LevelOne");
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }
