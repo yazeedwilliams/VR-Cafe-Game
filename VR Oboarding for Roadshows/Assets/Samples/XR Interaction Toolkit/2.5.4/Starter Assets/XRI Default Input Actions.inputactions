@@ -1004,7 +1004,7 @@
                     "path": "<OculusTouchController>{LeftHand}/thumbstickTouched",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Generic XR Controller",
                     "action": "Analogue",
                     "isComposite": false,
                     "isPartOfComposite": false

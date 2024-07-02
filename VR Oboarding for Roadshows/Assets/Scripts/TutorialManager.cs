@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,13 +6,23 @@ public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] instructionsText;
     [SerializeField] private XRControllerButtonInput buttonInput;
+    [SerializeField] private AudioClip[] stepAudioClips;
+    [SerializeField] private AudioSource audioSource;
+
+    private float deactivateTime = 5f;
+    private int currentStep = 0;
 
     private void Start()
     {
-        if (instructionsText.Length > 0)
+        if (instructionsText.Length == 0)
         {
-            instructionsText[0].SetActive(true);
+            Debug.LogError("instructionsText array is empty.");
+            return;
         }
+
+        instructionsText[currentStep].SetActive(true);
+        StartCoroutine(DeactivateAfterDelay(deactivateTime));
+
 
         // Subscribe to button press events
         if (buttonInput != null)
@@ -33,30 +41,71 @@ public class TutorialManager : MonoBehaviour
 
     private void HandleButtonPress(InputActionReference actionReference)
     {
-        if (actionReference == buttonInput.leftTriggerButtonAction || actionReference == buttonInput.rightTriggerButtonAction)
+        if (currentStep >= instructionsText.Length)
         {
-            instructionsText[0].SetActive(false);
-            instructionsText[1].SetActive(true);
+            Debug.LogError("Current step is out of range.");
+            return;
         }
-        else if (actionReference == buttonInput.leftGripButtonAction || actionReference == buttonInput.rightGripButtonAction)
+
+        if (currentStep == 1 && instructionsText[1].activeSelf &&
+            (actionReference == buttonInput.leftTriggerButtonAction || actionReference == buttonInput.rightTriggerButtonAction))
         {
-            instructionsText[1].SetActive(false);
-            instructionsText[2].SetActive(true);
+            MoveToNextStep();
         }
-        else if (actionReference == buttonInput.leftSecondaryButtonAction || actionReference == buttonInput.rightSecondaryButtonAction)
+        else if (currentStep == 2 && instructionsText[2].activeSelf &&
+                 (actionReference == buttonInput.leftGripButtonAction || actionReference == buttonInput.rightGripButtonAction))
         {
-            instructionsText[2].SetActive(false);
-            instructionsText[3].SetActive(true);
+            MoveToNextStep();
         }
-        else if (actionReference == buttonInput.leftPrimaryButtonAction || actionReference == buttonInput.rightPrimaryButtonAction)
+        else if (currentStep == 3 && instructionsText[3].activeSelf &&
+                 (actionReference == buttonInput.leftPrimaryButtonAction || actionReference == buttonInput.rightPrimaryButtonAction))
         {
-            instructionsText[3].SetActive(false);
-            instructionsText[4].SetActive(true);
+            MoveToNextStep();
         }
-        else if (actionReference == buttonInput.leftAnalogueButtonAction || actionReference == buttonInput.rightAnalogueButtonAction)
+        else if (currentStep == 4 && instructionsText[4].activeSelf &&
+                 (actionReference == buttonInput.leftSecondaryButtonAction || actionReference == buttonInput.rightSecondaryButtonAction))
         {
-            instructionsText[4].SetActive(false);
-            instructionsText[5].SetActive(true);
+            MoveToNextStep();
         }
+        else if (currentStep == 5 && instructionsText[5].activeSelf &&
+                 (actionReference == buttonInput.leftSecondaryButtonAction || actionReference == buttonInput.rightSecondaryButtonAction))
+        {
+            MoveToNextStep();
+        }
+        else if (currentStep == 6 && instructionsText[6].activeSelf &&
+                 (actionReference == buttonInput.leftAnalogueButtonAction || actionReference == buttonInput.rightAnalogueButtonAction))
+        {
+            MoveToNextStep();
+        }
+    }
+
+    private void MoveToNextStep()
+    {
+        instructionsText[currentStep].SetActive(false);
+        currentStep++;
+        if (currentStep <= instructionsText.Length)
+        {
+            instructionsText[currentStep].SetActive(true);
+            PlayStepAudio(currentStep);
+        }
+
+        if (currentStep == instructionsText.Length)
+            Debug.Log("Finished");
+    }
+
+    private void PlayStepAudio(int step)
+    {
+        if (stepAudioClips.Length > step && stepAudioClips[step] != null && audioSource != null)
+        {
+            audioSource.clip = stepAudioClips[step];
+            audioSource.Play();
+        }
+    }
+
+    private IEnumerator DeactivateAfterDelay(float delay)
+    {
+        PlayStepAudio(currentStep);
+        yield return new WaitForSeconds(delay);
+        MoveToNextStep();
     }
 }

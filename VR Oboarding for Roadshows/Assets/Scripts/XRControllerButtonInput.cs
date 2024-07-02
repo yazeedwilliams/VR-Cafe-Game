@@ -78,27 +78,22 @@ public class XRControllerButtonInput : MonoBehaviour
         {
             if (actionReference == leftTriggerButtonAction || actionReference == rightTriggerButtonAction)
             {
-                Debug.Log("Trigger");
                 OnButtonPressEvent?.Invoke(actionReference);
             }
             else if (actionReference == leftGripButtonAction || actionReference == rightGripButtonAction)
             {
-                Debug.Log("Grip");
                 OnButtonPressEvent?.Invoke(actionReference);
             }
             else if (actionReference == leftPrimaryButtonAction || actionReference == rightPrimaryButtonAction)
             {
-                Debug.Log("Primary");
                 OnButtonPressEvent?.Invoke(actionReference);
             }
             else if (actionReference == leftSecondaryButtonAction || actionReference == rightSecondaryButtonAction)
             {
-                Debug.Log("Secondary");
                 OnButtonPressEvent?.Invoke(actionReference);
             }
             else if (actionReference == leftAnalogueButtonAction || actionReference == rightAnalogueButtonAction)
             {
-                Debug.Log("Analogue");
                 OnButtonPressEvent?.Invoke(actionReference);
             }
         }
