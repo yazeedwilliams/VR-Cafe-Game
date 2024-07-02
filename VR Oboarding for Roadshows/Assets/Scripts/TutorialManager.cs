@@ -5,8 +5,9 @@ using UnityEngine.InputSystem;
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] instructionsText;
-    [SerializeField] private XRControllerButtonInput buttonInput;
     [SerializeField] private AudioClip[] stepAudioClips;
+    [SerializeField] private GameObject[] highlightedButtons;
+    [SerializeField] private XRControllerButtonInput buttonInput;
     [SerializeField] private AudioSource audioSource;
 
     private float deactivateTime = 5f;
@@ -82,12 +83,15 @@ public class TutorialManager : MonoBehaviour
     private void MoveToNextStep()
     {
         instructionsText[currentStep].SetActive(false);
+        //highlightedButtons[currentStep].SetActive(false);
         currentStep++;
-        if (currentStep <= instructionsText.Length)
+        if (currentStep < instructionsText.Length)
         {
+            highlightedButtons[currentStep - 1].SetActive(true);
             instructionsText[currentStep].SetActive(true);
             PlayStepAudio(currentStep);
         }
+        highlightedButtons[currentStep - 1].SetActive(false);
 
         if (currentStep == instructionsText.Length)
             Debug.Log("Finished");
