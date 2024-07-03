@@ -10,6 +10,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject selectAndMoveBackground;
     [SerializeField] private TextMeshProUGUI gameTimerText;
     [SerializeField] private UnityEvent onGameEnd;
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private AudioClip introAudio;
+    [SerializeField] private AudioClip rayAudio;
+    [SerializeField] private AudioClip selectAndMoveAudio;
+    [SerializeField] private AudioClip grabAudio;
 
     private ScoreCounter scoreCount;
 
@@ -66,13 +72,40 @@ public class GameManager : MonoBehaviour
 #endif
     }
 
+    private void PlayIntroAudio()
+    {
+        audioSource.clip = introAudio;
+        audioSource.Play();
+    }
+
+    private void PlayRayAudio()
+    {
+        audioSource.clip = rayAudio;
+        audioSource.Play();
+    }
+
+    private void PlaySelectAndMoveAudio()
+    {
+        audioSource.clip = selectAndMoveAudio;
+        audioSource.Play();
+    }
+
+    private void PlayGrabAudio()
+    {
+        audioSource.clip = grabAudio;
+        audioSource.Play();
+    }
+
     private IEnumerator Deactivate()
     {
+        PlayIntroAudio();
         yield return new WaitForSeconds(timeDelay);
         introBackground.SetActive(false);
         rayBackground.SetActive(true);
+        PlayRayAudio();
         yield return new WaitForSeconds(timeDelay);
         rayBackground.SetActive(false);
         selectAndMoveBackground.SetActive(true);
+        PlaySelectAndMoveAudio();
     }
 }
