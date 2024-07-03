@@ -5,24 +5,34 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private GameObject introBackground;
+    [SerializeField] private GameObject rayBackground;
+    [SerializeField] private GameObject selectAndMoveBackground;
     [SerializeField] private TextMeshProUGUI gameTimerText;
     [SerializeField] private UnityEvent onGameEnd;
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private AudioClip introAudio;
+    [SerializeField] private AudioClip rayAudio;
+    [SerializeField] private AudioClip selectAndMoveAudio;
+    [SerializeField] private AudioClip grabAudio;
 
     private ScoreCounter scoreCount;
 
+    private float timeDelay = 13f;
     private float startTime = 20f;
     private float currentTime;
 
     private void Start()
     {
         scoreCount = FindAnyObjectByType<ScoreCounter>();
+        StartCoroutine(Deactivate());
     }
 
     public void StartGame()
     {
         ResetTimer();
         StartCoroutine(GameTimeCountdown());
-        //StartCoroutine(GameScore());
     }
 
     private void ResetTimer()
@@ -40,7 +50,6 @@ public class GameManager : MonoBehaviour
             if (scoreCount.GetScore() == 2)
             {
                 GameOver();
-                //yield return null;
             }
             yield return null;
         }
@@ -61,5 +70,42 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+    private void PlayIntroAudio()
+    {
+        audioSource.clip = introAudio;
+        audioSource.Play();
+    }
+
+    private void PlayRayAudio()
+    {
+        audioSource.clip = rayAudio;
+        audioSource.Play();
+    }
+
+    private void PlaySelectAndMoveAudio()
+    {
+        audioSource.clip = selectAndMoveAudio;
+        audioSource.Play();
+    }
+
+    public void PlayGrabAudio()
+    {
+        audioSource.clip = grabAudio;
+        audioSource.Play();
+    }
+
+    private IEnumerator Deactivate()
+    {
+        PlayIntroAudio();
+        yield return new WaitForSeconds(timeDelay);
+        introBackground.SetActive(false);
+        rayBackground.SetActive(true);
+        PlayRayAudio();
+        yield return new WaitForSeconds(timeDelay);
+        rayBackground.SetActive(false);
+        selectAndMoveBackground.SetActive(true);
+        PlaySelectAndMoveAudio();
     }
 }
