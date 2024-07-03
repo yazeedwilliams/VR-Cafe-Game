@@ -5,6 +5,7 @@
 /// </summary>
 public class DestroyObject : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private int points = 1;
     private UpdateScore updateScore;
 
@@ -18,6 +19,7 @@ public class DestroyObject : MonoBehaviour
         if (other.CompareTag("Bin"))
         {
             updateScore.IncreasScore(points);
+            audioSource.Play();
             Destroy(gameObject);
         }
     }
