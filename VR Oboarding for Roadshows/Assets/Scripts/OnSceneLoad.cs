@@ -8,9 +8,7 @@ using UnityEngine.SceneManagement;
 public class OnSceneLoad : MonoBehaviour
 {
     // When scene is loaded and play begins
-    public UnityEvent OnLoad = new UnityEvent();
-
-    private AudioSource narration;
+    public UnityEvent OnLoad = new();
 
     private void Awake()
     {
@@ -25,7 +23,5 @@ public class OnSceneLoad : MonoBehaviour
     private void PlayEvent(Scene scene, LoadSceneMode mode)
     {
         OnLoad.Invoke();
-        narration = GetComponent<AudioSource>();
-        narration.Play();
     }
 }
