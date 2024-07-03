@@ -12264,7 +12264,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d4686dec23d298c49814dad10dc3e1d1, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -21687,10 +21687,10 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   audioSource: {fileID: 767235295}
-  introAudio: {fileID: 0}
-  rayAudio: {fileID: 0}
-  selectAndMoveAudio: {fileID: 0}
-  grabAudio: {fileID: 0}
+  introAudio: {fileID: 8300000, guid: 60aec0d1c9095b94b9df2f443a09bb45, type: 3}
+  rayAudio: {fileID: 8300000, guid: 1390bd589994c994687245694dc6389f, type: 3}
+  selectAndMoveAudio: {fileID: 8300000, guid: 6c7fd5aebf6cf23489ecd985550cbf26, type: 3}
+  grabAudio: {fileID: 8300000, guid: 6f3b336183a482d4b9ff3f148d1e3e42, type: 3}
 --- !u!114 &767235293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29934,9 +29934,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 767235295}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 767235292}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PlayGrabAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31948,18 +31948,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 419185086}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Stop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1131459268
 MonoBehaviour:
@@ -36964,12 +36952,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'To select, press and hold the primary button. Aim at a UI element, then
-    press the trigger button to make your selection.
-
-
-    To move, press and hold
-    the primary button. Aim at the ground, then press the grab button to teleport.'
+  m_text: To grab, reach out to an object and the press and hold the grab button.
+    Release the button to drop the object.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

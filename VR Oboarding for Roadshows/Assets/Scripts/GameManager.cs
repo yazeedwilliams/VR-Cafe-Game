@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     private ScoreCounter scoreCount;
 
-    private float timeDelay = 4f;
+    private float timeDelay = 13f;
     private float startTime = 20f;
     private float currentTime;
 
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         audioSource.Play();
     }
 
-    private void PlayGrabAudio()
+    public void PlayGrabAudio()
     {
         audioSource.clip = grabAudio;
         audioSource.Play();
