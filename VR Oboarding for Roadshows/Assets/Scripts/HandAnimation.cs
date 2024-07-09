@@ -5,10 +5,12 @@ using UnityEngine.InputSystem;
 public class HandAnimation : MonoBehaviour
 {
     [SerializeField] private InputActionReference gripReference;
+    [SerializeField] private InputActionReference triggerReference;
 
     private Animator _handAnimator;
 
     private float _gripValue;
+    private float _triggerValue;
 
     private void Start()
     {
@@ -24,5 +26,11 @@ public class HandAnimation : MonoBehaviour
     {
         _gripValue = gripReference.action.ReadValue<float>();
         _handAnimator.SetFloat("Grip", _gripValue);
+    }
+
+    private void AnimateTrigger()
+    {
+        _triggerValue = triggerReference.action.ReadValue<float>();
+        _handAnimator.SetFloat("Trigger", _triggerValue);
     }
 }

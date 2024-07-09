@@ -3911,6 +3911,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gripReference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
+  triggerReference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
 --- !u!1 &920921510
 GameObject:
   m_ObjectHideFlags: 0
@@ -4993,7 +4995,6 @@ MonoBehaviour:
   - {fileID: 122574600}
   - {fileID: 1829849916}
   - {fileID: 1437140282}
-  - {fileID: 819555433}
   - {fileID: 191110418}
   stepAudioClips:
   - {fileID: 8300000, guid: 5f2fe189ac940e745b1165b0f6b77aaf, type: 3}
@@ -5001,14 +5002,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 416c4ade5c6f68249b81b6f44283b9ca, type: 3}
   - {fileID: 8300000, guid: 580d7c3e5e86ea341acafe3905a03367, type: 3}
   - {fileID: 8300000, guid: c2d43a00c1d958045a84e03eb44b048c, type: 3}
-  - {fileID: 8300000, guid: c919b93be9ede7847a76029cded3ead7, type: 3}
   - {fileID: 8300000, guid: dbea6b444a1d9c94dba1d8f72961886d, type: 3}
   highlightedButtons:
   - {fileID: 1293082733}
   - {fileID: 1007928758}
   - {fileID: 1966628424}
   - {fileID: 1756737756}
-  - {fileID: 1470369663}
   buttonInput: {fileID: 1401397144}
   audioSource: {fileID: 1401397145}
 --- !u!4 &1401397143
