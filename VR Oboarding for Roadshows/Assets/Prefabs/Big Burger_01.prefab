@@ -118,10 +118,10 @@ GameObject:
   - component: {fileID: 5474481767135350497}
   - component: {fileID: 3555086384103605167}
   - component: {fileID: 1120013397148013270}
+  - component: {fileID: 8780468610462979890}
   - component: {fileID: 2943256374820171035}
   - component: {fileID: 7449310352712160084}
   - component: {fileID: 6906482290502932568}
-  - component: {fileID: 8780468610462979890}
   m_Layer: 0
   m_Name: Big Burger_01
   m_TagString: Untagged
@@ -212,11 +212,32 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1243254024658737570, guid: b9c054b445d458c45bcb601fd368e786, type: 3}
+--- !u!65 &8780468610462979890
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8275575248790757025}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2351932, y: 0.097444326, z: 0.51007056}
+  m_Center: {x: -0.00089332205, y: 0.04920222, z: -0.13981122}
 --- !u!54 &2943256374820171035
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -410,24 +431,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   points: 1
---- !u!65 &8780468610462979890
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8275575248790757025}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.2351932, y: 0.097444326, z: 0.51007056}
-  m_Center: {x: -0.00089332205, y: 0.04920222, z: -0.13981122}

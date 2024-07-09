@@ -15,12 +15,20 @@ public class HandAnimation : MonoBehaviour
     private void Start()
     {
         _handAnimator = GetComponent<Animator>();
+
+        if (gripReference != null && gripReference.action != null)
+            gripReference.action.Enable();
+
+        if (triggerReference != null && triggerReference.action != null) 
+            triggerReference.action.Enable();
     }
 
     private void Update()
     {
-        AnimateGrip();
-        AnimateTrigger();
+        if (gripReference != null && gripReference.action != null)
+            AnimateGrip();
+        if (triggerReference != null && triggerReference.action != null)
+            AnimateTrigger();
     }
 
     private void AnimateGrip()
