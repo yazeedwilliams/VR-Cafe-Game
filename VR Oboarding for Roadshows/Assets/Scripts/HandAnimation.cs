@@ -20,6 +20,7 @@ public class HandAnimation : MonoBehaviour
     private void Update()
     {
         AnimateGrip();
+        AnimateTrigger();
     }
 
     private void AnimateGrip()
