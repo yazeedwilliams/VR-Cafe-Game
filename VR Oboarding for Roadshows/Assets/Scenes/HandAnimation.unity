@@ -4924,6 +4924,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftHandController
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b92ab349354d11444a462a89f5787c81,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: b92ab349354d11444a462a89f5787c81,
         type: 3}
       propertyPath: m_Controller
