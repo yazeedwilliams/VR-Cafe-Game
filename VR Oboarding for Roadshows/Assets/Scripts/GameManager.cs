@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private ScoreCounter scoreCount;
 
     private float timeDelay = 13f;
-    private float startTime = 45f;
+    private float startTime = 5f;
     private float currentTime;
 
     private void Start()
