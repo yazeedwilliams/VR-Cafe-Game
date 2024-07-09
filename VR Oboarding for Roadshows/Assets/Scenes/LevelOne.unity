@@ -10952,6 +10952,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fries Box_01
       objectReference: {fileID: 0}
+    - target: {fileID: 7450294048475606722, guid: e6a5e37ff7f4d9e4fb15951fbbf16945,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 530684265}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11048,6 +11053,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6906482290502932568, guid: f1baa3bfdb752be4cbc6a45ddc89b8b9,
+        type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 530684265}
     - target: {fileID: 8275575248790757025, guid: f1baa3bfdb752be4cbc6a45ddc89b8b9,
         type: 3}
       propertyPath: m_Name
