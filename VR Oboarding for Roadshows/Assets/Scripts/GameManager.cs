@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
             gameTimerText.text = Mathf.Ceil(currentTime).ToString();
-            if (scoreCount.GetScore() == 2)
+            if (scoreCount.GetScore() == 3)
             {
                 GameOver();
             }
