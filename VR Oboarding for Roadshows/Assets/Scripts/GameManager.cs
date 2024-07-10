@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator Deactivate()
     {
         PlayIntroAudio();
-        yield return new WaitForSeconds(timeDelay);
+        yield return new WaitForSeconds(10f);
         introBackground.SetActive(false);
         rayBackground.SetActive(true);
         PlayRayAudio();
