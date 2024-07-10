@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private ScoreCounter scoreCount;
 
     private float timeDelay = 13f;
-    private float startTime = 20f;
+    private float startTime = 5f;
     private float currentTime;
 
     private void Start()
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
             gameTimerText.text = Mathf.Ceil(currentTime).ToString();
-            if (scoreCount.GetScore() == 2)
+            if (scoreCount.GetScore() == 3)
             {
                 GameOver();
             }

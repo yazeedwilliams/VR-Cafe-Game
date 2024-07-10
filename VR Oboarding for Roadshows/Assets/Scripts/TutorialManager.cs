@@ -80,12 +80,12 @@ public class TutorialManager : MonoBehaviour
             MoveToNextStep();
             ChangeHighlightButton();
         }
-        else if (currentStep == 6 && instructionsText[6].activeSelf &&
+        /*else if (currentStep == 6 && instructionsText[6].activeSelf &&
                  (actionReference == buttonInput.leftAnalogueButtonAction || actionReference == buttonInput.rightAnalogueButtonAction))
         {
             MoveToNextStep();
             ChangeHighlightButton();
-        }
+        }*/
     }
 
     private void MoveToNextStep()
@@ -98,7 +98,7 @@ public class TutorialManager : MonoBehaviour
             PlayStepAudio(currentStep);
         }
 
-        if (currentStep == 6)
+        if (currentStep == 5)
             StartCoroutine(ChangeScene(timeDelay));
     }
 
