@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour
             gameTimerText.text = Mathf.Ceil(currentTime).ToString();
             if (scoreCount.GetScore() == 3)
             {
-                GameOver();
                 PlaySuccessfulAudio();
+                GameOver();
             }
             yield return null;
         }
