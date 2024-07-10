@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/HandAnimation.unity
+    path: Assets/Scenes/HandTutorial.unity
     guid: 516ab0e7853e8b34cb148a9ee66623d3
   - enabled: 1
     path: Assets/Scenes/LevelOne.unity
