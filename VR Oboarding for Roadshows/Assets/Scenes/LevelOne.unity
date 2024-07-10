@@ -1216,6 +1216,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1982914290357065258, guid: ccbd90dda9551cc4f96bcf5d39b5b0a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6506924490895729147, guid: ccbd90dda9551cc4f96bcf5d39b5b0a2,
         type: 3}
       propertyPath: m_Name
@@ -1236,10 +1241,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9190998570047194738, guid: ccbd90dda9551cc4f96bcf5d39b5b0a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7695234498070468225, guid: ccbd90dda9551cc4f96bcf5d39b5b0a2, type: 3}
     - {fileID: 8618588018324938603, guid: ccbd90dda9551cc4f96bcf5d39b5b0a2, type: 3}
+    - {fileID: 3739025850288349244, guid: ccbd90dda9551cc4f96bcf5d39b5b0a2, type: 3}
+    - {fileID: 8244399389360460046, guid: ccbd90dda9551cc4f96bcf5d39b5b0a2, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccbd90dda9551cc4f96bcf5d39b5b0a2, type: 3}
@@ -1753,7 +1765,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_SelectActionTrigger: 1
-  m_HideControllerOnSelect: 0
+  m_HideControllerOnSelect: 1
   m_AllowHoveredActivate: 0
   m_TargetPriorityMode: 0
   m_PlayAudioClipOnSelectEntered: 1
@@ -2175,7 +2187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &530684264
 Transform:
   m_ObjectHideFlags: 0
@@ -2298,6 +2310,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2818971628382573792, guid: fad94b617f0540568dbf4c9c4011248c,
+        type: 3}
+      propertyPath: m_MatchOrientation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818971628382573792, guid: fad94b617f0540568dbf4c9c4011248c,
+        type: 3}
+      propertyPath: m_MatchDirectionalInput
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3449784919008568370, guid: fad94b617f0540568dbf4c9c4011248c,
         type: 3}
       propertyPath: m_Name
@@ -3273,7 +3295,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_SelectActionTrigger: 1
-  m_HideControllerOnSelect: 0
+  m_HideControllerOnSelect: 1
   m_AllowHoveredActivate: 0
   m_TargetPriorityMode: 0
   m_PlayAudioClipOnSelectEntered: 1
@@ -5045,6 +5067,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Stop
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 530684263}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8628,6 +8662,16 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 530684265}
+    - target: {fileID: 7608710902576225551, guid: f04168f81c08c0c42a39a93828ef3483,
+        type: 3}
+      propertyPath: m_SmoothPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7608710902576225551, guid: f04168f81c08c0c42a39a93828ef3483,
+        type: 3}
+      propertyPath: m_SmoothRotation
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
