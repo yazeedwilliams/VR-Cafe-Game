@@ -16,11 +16,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip rayAudio;
     [SerializeField] private AudioClip selectAndMoveAudio;
     [SerializeField] private AudioClip grabAudio;
+    [SerializeField] private AudioClip successfulAudio;
+    [SerializeField] private AudioClip unsuccessfulAudio;
 
     private ScoreCounter scoreCount;
 
     private float timeDelay = 13f;
-    private float startTime = 5f;
+    private float startTime = 45f;
     private float currentTime;
 
     private void Start()
@@ -49,10 +51,12 @@ public class GameManager : MonoBehaviour
             gameTimerText.text = Mathf.Ceil(currentTime).ToString();
             if (scoreCount.GetScore() == 3)
             {
+                PlaySuccessfulAudio();
                 GameOver();
             }
             yield return null;
         }
+        PlayUnsuccessfulAudio();
         GameOver();
         yield return new WaitForSeconds(1f);
     }
@@ -70,6 +74,18 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+    private void PlaySuccessfulAudio()
+    {
+        audioSource.clip = successfulAudio;
+        audioSource.Play();
+    }
+
+    private void PlayUnsuccessfulAudio()
+    {
+        audioSource.clip = unsuccessfulAudio;
+        audioSource.Play();
     }
 
     private void PlayIntroAudio()
@@ -99,7 +115,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator Deactivate()
     {
         PlayIntroAudio();
-        yield return new WaitForSeconds(timeDelay);
+        yield return new WaitForSeconds(10f);
         introBackground.SetActive(false);
         rayBackground.SetActive(true);
         PlayRayAudio();
