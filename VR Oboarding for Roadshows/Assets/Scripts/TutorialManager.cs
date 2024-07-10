@@ -7,7 +7,8 @@ public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] instructionsText;
     [SerializeField] private AudioClip[] stepAudioClips;
-    [SerializeField] private GameObject[] highlightedButtons;
+    [SerializeField] private GameObject[] leftHighlightedButtons;
+    [SerializeField] private GameObject[] rightHighlightedButtons;
     [SerializeField] private XRControllerButtonInput buttonInput;
     [SerializeField] private AudioSource audioSource;
 
@@ -104,11 +105,15 @@ public class TutorialManager : MonoBehaviour
 
     private void ChangeHighlightButton()
     {
-        if (highlightedButtonsIndex < highlightedButtons.Length)
+        if (highlightedButtonsIndex < leftHighlightedButtons.Length && highlightedButtonsIndex < rightHighlightedButtons.Length)
         {
             if (highlightedButtonsIndex > 0)
-                highlightedButtons[highlightedButtonsIndex - 1].SetActive(false);
-            highlightedButtons[highlightedButtonsIndex].SetActive(true);
+            {
+                leftHighlightedButtons[highlightedButtonsIndex - 1].SetActive(false);
+                rightHighlightedButtons[highlightedButtonsIndex - 1].SetActive(false);
+            }
+            leftHighlightedButtons[highlightedButtonsIndex].SetActive(true);
+            rightHighlightedButtons[highlightedButtonsIndex].SetActive(true);
             highlightedButtonsIndex++;
         }
     }
