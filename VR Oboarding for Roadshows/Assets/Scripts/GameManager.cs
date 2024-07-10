@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private ScoreCounter scoreCount;
 
     private float timeDelay = 13f;
-    private float startTime = 45f;
+    private float startTime = 20f;
     private float currentTime;
 
     private void Start()
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         gameTimerText.text = Mathf.Ceil(currentTime).ToString();
     }
 
+
     private IEnumerator GameTimeCountdown()
     {
         while (currentTime > 0)
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
             {
                 PlaySuccessfulAudio();
                 GameOver();
+                //StopCoroutine(GameTimeCountdown());
             }
             yield return null;
         }
