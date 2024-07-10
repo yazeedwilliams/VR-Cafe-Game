@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip rayAudio;
     [SerializeField] private AudioClip selectAndMoveAudio;
     [SerializeField] private AudioClip grabAudio;
+    [SerializeField] private AudioClip successfulAudio;
+    [SerializeField] private AudioClip unsuccessfulAudio;
 
     private ScoreCounter scoreCount;
 
@@ -50,9 +52,11 @@ public class GameManager : MonoBehaviour
             if (scoreCount.GetScore() == 3)
             {
                 GameOver();
+                PlaySuccessfulAudio();
             }
             yield return null;
         }
+        PlayUnsuccessfulAudio();
         GameOver();
         yield return new WaitForSeconds(1f);
     }
@@ -70,6 +74,18 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
+    }
+
+    private void PlaySuccessfulAudio()
+    {
+        audioSource.clip = successfulAudio;
+        audioSource.Play();
+    }
+
+    private void PlayUnsuccessfulAudio()
+    {
+        audioSource.clip = unsuccessfulAudio;
+        audioSource.Play();
     }
 
     private void PlayIntroAudio()

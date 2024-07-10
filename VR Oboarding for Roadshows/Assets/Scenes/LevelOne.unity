@@ -3527,11 +3527,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1626198129}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   audioSource: {fileID: 767235295}
   introAudio: {fileID: 8300000, guid: 60aec0d1c9095b94b9df2f443a09bb45, type: 3}
   rayAudio: {fileID: 8300000, guid: 1390bd589994c994687245694dc6389f, type: 3}
   selectAndMoveAudio: {fileID: 8300000, guid: 6c7fd5aebf6cf23489ecd985550cbf26, type: 3}
   grabAudio: {fileID: 8300000, guid: 6f3b336183a482d4b9ff3f148d1e3e42, type: 3}
+  successfulAudio: {fileID: 8300000, guid: 379b3f1c1579d6e4c9e8992c55104716, type: 3}
+  unsuccessfulAudio: {fileID: 8300000, guid: c3abff11172ddf24db3a345aa6856ec8, type: 3}
 --- !u!114 &767235293
 MonoBehaviour:
   m_ObjectHideFlags: 0
