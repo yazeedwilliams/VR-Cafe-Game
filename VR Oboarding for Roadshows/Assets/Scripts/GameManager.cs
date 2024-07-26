@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         scoreCount = FindAnyObjectByType<ScoreCounter>();
-        StartCoroutine(Deactivate());
+        //StartCoroutine(Deactivate());
     }
 
     public void StartGame()
