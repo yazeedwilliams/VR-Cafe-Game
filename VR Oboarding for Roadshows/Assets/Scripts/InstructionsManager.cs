@@ -1,9 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
 public class InstructionsManager : MonoBehaviour
 {
@@ -33,7 +30,7 @@ public class InstructionsManager : MonoBehaviour
         {
             audioMappings.Add(pair.instructions, pair.narrationAudioClip);
 
-            // Add listener for Canvas activation
+            // Add listener for instruction activation
             InstructionActivationListener listener = pair.instructions.AddComponent<InstructionActivationListener>();
             listener.Initialize(this);
             // Deactivate all instructions
@@ -42,18 +39,14 @@ public class InstructionsManager : MonoBehaviour
 
         // Activate the first instruction
         if (instructionsAudioPairs.Count > 0)
-        {
-            ActivateCanvas(0);
-        }
+            ActivateInstruction(0);
     }
 
     private void OnAudioComplete()
     {
         currentCanvasIndex++;
         if (currentCanvasIndex < instructionsAudioPairs.Count)
-        {
-            ActivateCanvas(currentCanvasIndex);
-        }
+            ActivateInstruction(currentCanvasIndex);
     }
 
     // Method to play audio for a specific instruction
@@ -72,7 +65,7 @@ public class InstructionsManager : MonoBehaviour
         }
     }
 
-    private void ActivateCanvas(int index)
+    private void ActivateInstruction(int index)
     {
         for (int i = 0; i < instructionsAudioPairs.Count; i++)
             instructionsAudioPairs[i].instructions.SetActive(i == index);

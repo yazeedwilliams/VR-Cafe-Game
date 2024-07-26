@@ -4207,12 +4207,6 @@ MonoBehaviour:
   - instructions: {fileID: 1887276176}
     narrationAudioClip: {fileID: 8300000, guid: 1390bd589994c994687245694dc6389f,
       type: 3}
-  - instructions: {fileID: 872550925}
-    narrationAudioClip: {fileID: 8300000, guid: 6c7fd5aebf6cf23489ecd985550cbf26,
-      type: 3}
-  - instructions: {fileID: 646713966}
-    narrationAudioClip: {fileID: 8300000, guid: 6f3b336183a482d4b9ff3f148d1e3e42,
-      type: 3}
 --- !u!82 &825406795
 AudioSource:
   m_ObjectHideFlags: 0
