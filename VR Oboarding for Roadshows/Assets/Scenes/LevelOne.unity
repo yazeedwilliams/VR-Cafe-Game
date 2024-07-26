@@ -4167,8 +4167,9 @@ GameObject:
   - component: {fileID: 825406792}
   - component: {fileID: 825406791}
   - component: {fileID: 825406790}
+  - component: {fileID: 825406794}
   m_Layer: 0
-  m_Name: Canvas Help Text
+  m_Name: Canvas Instructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4282,6 +4283,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &825406794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825406788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 592ea8d0433554e4cb36038c4506a835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instructionsBackground: []
+  instructionsAudio: []
+  instructionsAudioSource: {fileID: 0}
 --- !u!4 &826514684 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3133957896949509619, guid: ce8fe15fe218b10459d08e5bd9dbc628,
