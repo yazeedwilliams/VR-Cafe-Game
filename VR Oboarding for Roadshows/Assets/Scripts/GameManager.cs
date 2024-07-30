@@ -5,23 +5,15 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject introBackground;
-    [SerializeField] private GameObject rayBackground;
-    [SerializeField] private GameObject selectAndMoveBackground;
     [SerializeField] private TextMeshProUGUI gameTimerText;
     [SerializeField] private UnityEvent onGameEnd;
     [SerializeField] private AudioSource audioSource;
 
-    [SerializeField] private AudioClip introAudio;
-    [SerializeField] private AudioClip rayAudio;
-    [SerializeField] private AudioClip selectAndMoveAudio;
-    [SerializeField] private AudioClip grabAudio;
     [SerializeField] private AudioClip successfulAudio;
     [SerializeField] private AudioClip unsuccessfulAudio;
 
     private ScoreCounter scoreCount;
 
-    private float timeDelay = 13f;
     private float startTime = 45f;
     private float currentTime;
 
@@ -88,42 +80,5 @@ public class GameManager : MonoBehaviour
     {
         audioSource.clip = unsuccessfulAudio;
         audioSource.Play();
-    }
-
-    private void PlayIntroAudio()
-    {
-        audioSource.clip = introAudio;
-        audioSource.Play();
-    }
-
-    private void PlayRayAudio()
-    {
-        audioSource.clip = rayAudio;
-        audioSource.Play();
-    }
-
-    private void PlaySelectAndMoveAudio()
-    {
-        audioSource.clip = selectAndMoveAudio;
-        audioSource.Play();
-    }
-
-    public void PlayGrabAudio()
-    {
-        audioSource.clip = grabAudio;
-        audioSource.Play();
-    }
-
-    private IEnumerator Deactivate()
-    {
-        PlayIntroAudio();
-        yield return new WaitForSeconds(10f);
-        introBackground.SetActive(false);
-        rayBackground.SetActive(true);
-        PlayRayAudio();
-        yield return new WaitForSeconds(timeDelay);
-        rayBackground.SetActive(false);
-        selectAndMoveBackground.SetActive(true);
-        PlaySelectAndMoveAudio();
     }
 }

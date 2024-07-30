@@ -1285,9 +1285,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 232281950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf14522d53cc1594991c164e785780dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 60c25000b205b36428094291cf4c41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forceToggle: 0
+  directInteractor: {fileID: 712900743}
 --- !u!4 &243545888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5820769687658160631, guid: a87fc52c6ca0854438ce7218986b6f01,
@@ -1884,9 +1886,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 364578160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a8d337e8bc7ac4498e0df29e7b8bd5e, type: 3}
+  m_Script: {fileID: 11500000, guid: feab2a84f6f25464ead3be2e78b83e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  action:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2875cfdd-9fd4-461e-934b-7aba221f32cd
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 09b48852-e2de-475a-8beb-e5074004da4c
+      m_Path: <XRController>{LeftHand}/primaryButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
+    m_Flags: 0
+  OnPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1766327521}
+        m_TargetAssemblyTypeName: ToggleRay, Assembly-CSharp
+        m_MethodName: ActivateRay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1766327521}
+        m_TargetAssemblyTypeName: ToggleRay, Assembly-CSharp
+        m_MethodName: DeactivateRay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &369447152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2620152610456313181, guid: d59d1708b196d3e4fb458a2aa72ef222,
@@ -3583,9 +3632,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 712900736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a8d337e8bc7ac4498e0df29e7b8bd5e, type: 3}
+  m_Script: {fileID: 11500000, guid: feab2a84f6f25464ead3be2e78b83e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  action:
+    m_Name: Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2875cfdd-9fd4-461e-934b-7aba221f32cd
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 09b48852-e2de-475a-8beb-e5074004da4c
+      m_Path: <XRController>{RightHand}/primaryButton
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Action
+      m_Flags: 0
+    m_Flags: 0
+  OnPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 232281956}
+        m_TargetAssemblyTypeName: ToggleRay, Assembly-CSharp
+        m_MethodName: ActivateRay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRelease:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 232281956}
+        m_TargetAssemblyTypeName: ToggleRay, Assembly-CSharp
+        m_MethodName: DeactivateRay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &715725654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3133957896949509619, guid: ce8fe15fe218b10459d08e5bd9dbc628,
@@ -3721,9 +3817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bcd4928adc23ab4a8418bbc6932f408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introBackground: {fileID: 1289251097}
-  rayBackground: {fileID: 1887276176}
-  selectAndMoveBackground: {fileID: 872550925}
   gameTimerText: {fileID: 2000932172}
   onGameEnd:
     m_PersistentCalls:
@@ -3777,10 +3870,6 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   audioSource: {fileID: 767235295}
-  introAudio: {fileID: 8300000, guid: 60aec0d1c9095b94b9df2f443a09bb45, type: 3}
-  rayAudio: {fileID: 8300000, guid: 1390bd589994c994687245694dc6389f, type: 3}
-  selectAndMoveAudio: {fileID: 8300000, guid: 6c7fd5aebf6cf23489ecd985550cbf26, type: 3}
-  grabAudio: {fileID: 8300000, guid: 6f3b336183a482d4b9ff3f148d1e3e42, type: 3}
   successfulAudio: {fileID: 8300000, guid: 379b3f1c1579d6e4c9e8992c55104716, type: 3}
   unsuccessfulAudio: {fileID: 8300000, guid: c3abff11172ddf24db3a345aa6856ec8, type: 3}
 --- !u!114 &767235293
@@ -4206,6 +4295,9 @@ MonoBehaviour:
       type: 3}
   - instructions: {fileID: 1887276176}
     narrationAudioClip: {fileID: 8300000, guid: 1390bd589994c994687245694dc6389f,
+      type: 3}
+  - instructions: {fileID: 872550925}
+    narrationAudioClip: {fileID: 8300000, guid: 6c7fd5aebf6cf23489ecd985550cbf26,
       type: 3}
 --- !u!82 &825406795
 AudioSource:
@@ -8271,9 +8363,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1766327515}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf14522d53cc1594991c164e785780dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 60c25000b205b36428094291cf4c41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forceToggle: 0
+  directInteractor: {fileID: 364578167}
 --- !u!4 &1773239877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3133957896949509619, guid: ce8fe15fe218b10459d08e5bd9dbc628,
